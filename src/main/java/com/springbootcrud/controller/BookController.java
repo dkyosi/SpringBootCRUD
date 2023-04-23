@@ -1,6 +1,7 @@
 package com.springbootcrud.controller;
 
 import com.springbootcrud.request.CreateBookRequest;
+import com.springbootcrud.request.EditBookRequest;
 import com.springbootcrud.response.BaseResponse;
 import com.springbootcrud.service.BookService;
 import jakarta.websocket.server.PathParam;
@@ -35,6 +36,15 @@ public class BookController {
     public BaseResponse getBooks(){
         try {
             return bookService.getAllBooks();
+        }catch (Exception e){
+            return new BaseResponse(400,"Failed "+e.getMessage());
+        }
+    }
+
+    @PatchMapping
+    public BaseResponse editBook(@RequestBody EditBookRequest request){
+        try {
+            return bookService.editBook(request);
         }catch (Exception e){
             return new BaseResponse(400,"Failed "+e.getMessage());
         }
