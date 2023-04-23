@@ -62,4 +62,15 @@ public class BookService {
             throw e;
         }
     }
+
+    public BaseResponse deleteBook(long bookId) {
+        try {
+            bookRepository.deleteById(bookId);
+            return  new BaseResponse(201,
+                    "Book deleted",
+                    "Deleted");
+        }catch (Exception e){
+            throw e;
+        }
+    }
 }

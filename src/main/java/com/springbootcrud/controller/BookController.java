@@ -49,4 +49,13 @@ public class BookController {
             return new BaseResponse(400,"Failed "+e.getMessage());
         }
     }
+
+    @DeleteMapping
+    public BaseResponse deleteBook(@PathVariable("bookId") long bookId){
+        try {
+            return bookService.deleteBook(bookId);
+        }catch (Exception e){
+            return new BaseResponse(400,"Failed "+e.getMessage());
+        }
+    }
 }
