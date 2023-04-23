@@ -25,7 +25,7 @@ public class BookService {
 
     public BaseResponse getSingleBook(long bookId) {
         try {
-            return  new BaseResponse(201,
+            return  new BaseResponse(200,
                     bookRepository.findById(bookId),
                     "Current Book");
         }catch (Exception e){
@@ -35,7 +35,7 @@ public class BookService {
 
     public BaseResponse getAllBooks() {
         try {
-            return  new BaseResponse(201,
+            return  new BaseResponse(200,
                     bookRepository.findAll(),
                     "All Books");
         }catch (Exception e){
@@ -55,7 +55,7 @@ public class BookService {
             book.setBookTitle(request.getTitle());
             book.setAuthor(request.getAuthor());
 
-            return  new BaseResponse(201,
+            return  new BaseResponse(200,
                     bookRepository.save(book),
                     "Book updated");
         }catch (Exception e){
@@ -66,7 +66,7 @@ public class BookService {
     public BaseResponse deleteBook(long bookId) {
         try {
             bookRepository.deleteById(bookId);
-            return  new BaseResponse(201,
+            return  new BaseResponse(200,
                     "Book deleted",
                     "Deleted");
         }catch (Exception e){
