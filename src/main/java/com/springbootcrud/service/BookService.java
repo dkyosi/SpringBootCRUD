@@ -31,4 +31,14 @@ public class BookService {
             throw e;
         }
     }
+
+    public BaseResponse getAllBooks() {
+        try {
+            return  new BaseResponse(201,
+                    bookRepository.findAll(),
+                    "All Books");
+        }catch (Exception e){
+            throw e;
+        }
+    }
 }

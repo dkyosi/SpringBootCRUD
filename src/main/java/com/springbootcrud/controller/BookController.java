@@ -30,4 +30,13 @@ public class BookController {
             return new BaseResponse(400,"Failed "+e.getMessage());
         }
     }
+
+    @GetMapping("/all")
+    public BaseResponse getBooks(){
+        try {
+            return bookService.getAllBooks();
+        }catch (Exception e){
+            return new BaseResponse(400,"Failed "+e.getMessage());
+        }
+    }
 }
